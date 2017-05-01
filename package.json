@@ -5,7 +5,8 @@
   "main": "index.jsx",
   "scripts": {
     "dev": "webpack -d --watch",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "test": "mocha --compilers js:babel-register --require babel-polyfill"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +22,11 @@
     "babel": "^6.23.0",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-register": "^6.24.1",
+    "chai": "^3.5.0",
+    "enzyme": "^2.8.2",
+    "mocha": "^3.3.0",
     "webpack": "^2.4.1"
   }
 }
