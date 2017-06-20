@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export default class Message extends Component {
     render() {
         return (<div>
-            <h1>Hello {this.props.message}</h1>
+            <h1>{this.props.message}</h1>
         </div>)
     }
 }
