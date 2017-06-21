@@ -6,16 +6,16 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            "message":""
+            "messages":[]
         }
 
     }
 
 
-    displayMessage(event) {
+    addMessage(event) {
         if(event.keyCode === 13) {
             const inputValue = this.refs.inputMessage.value;
-            this.setState({"message": inputValue });
+            this.setState({"messages": this.state.messages.concat([inputValue]) });
             this.refs.inputMessage.value= "";
         }
     }
@@ -23,8 +23,24 @@ export default class App extends Component {
 
     render() {
         return(<div className="heading">
-            <input ref="inputMessage" onKeyUp={(event) => {this.displayMessage(event)}}/>
-            <Message message={this.state.message}/>
+            <input ref="inputMessage" onKeyUp={(event) => {this.addMessage(event)}}/>
+            {this.displayMessages()}
         </div>);
     }
+
+    displayMessages() {
+        return ((this.state.messages).map((message, index)=> {
+            return <Message message={message} key={index} deleteMessage={() => {this.deleteMessage(message)}}/>
+        }));
+    }
+
+    deleteMessage(message) {
+        let messages = (this.state.messages);
+        let index = messages.indexOf(message);
+        if(index>-1) {
+            messages.splice(index, 1);
+            this.setState({"messages": messages});
+        }
+    }
+
 }
