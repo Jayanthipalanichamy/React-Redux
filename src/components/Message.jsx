@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export default class Message extends Component {
     render() {
-        return (<div>
+        return (<div className="message">
             <h1 onClick={this.props.deleteMessage}>{this.props.message} &times;</h1>
         </div>)
     }
@@ -12,5 +12,5 @@ export default class Message extends Component {
 
 Message.propTypes = {
     "message": PropTypes.string.isRequired,
-    "deleteMessage": PropTypes.func.isRequired
+    "deleteMessage": PropTypes.func
 };
