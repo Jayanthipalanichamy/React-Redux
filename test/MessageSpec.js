@@ -7,7 +7,7 @@ import { shallow } from "enzyme";
 import sinon from "sinon";
 
 //Shallow Rendering using Enzyme
-describe.only("Message", () => {
+describe("Message", () => {
 
     it("should have a heading", () => {
         const wrapper = shallow(<Message message="hi" />);
