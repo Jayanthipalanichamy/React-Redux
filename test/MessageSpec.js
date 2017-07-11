@@ -1,6 +1,7 @@
 "use strict";
 import Message from "./../src/components/Message";
-import Testutils  from "react-addons-test-utils";
+import ShallowRenderer  from "react-test-renderer/shallow";
+import TestUtils from "react-addons-test-utils";
 import React from "react";
 import { assert, expect } from "chai";
 import { shallow } from "enzyme";
@@ -32,8 +33,8 @@ describe("Message", () => {
 
 //Shallow Rendering
 describe("Message", () => {
-    it("should have header1 tag", () => {
-        let renderer = Testutils.createRenderer();
+    it("should have h1 tag", () => {
+        let renderer = new ShallowRenderer();
         renderer.render(<Message message="hi" />);
         let wrapper = renderer.getRenderOutput();
 
@@ -43,3 +44,11 @@ describe("Message", () => {
 });
 
 
+//Full Rendering
+describe("message", () => {
+    it("should have h1 tag", () => {
+        let renderer = TestUtils.renderIntoDocument(<Message message="hi"/>);
+        let wrapper = TestUtils.findRenderedDOMComponentWithTag(renderer, "h1");
+        assert.isDefined(wrapper);
+    });
+});
