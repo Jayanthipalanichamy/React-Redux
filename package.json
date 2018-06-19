@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.jsx",
   "scripts": {
-    "dev": "webpack -d --watch",
+    "watch": "webpack -d --watch",
     "build": "webpack -p",
     "test": "mocha --compilers js:babel-register --require babel-polyfill -r jsdom-global/register"
   },
